@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Meaning App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    /* 🔹 Start Screen */
+    #start-screen {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b, #1e90ff, #32cd32);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      color: #333;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+
+    /* 🔹 Word List Screen */
+    #word-list {
+      display: none;
+      padding: 20px;
+      background: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: white;
+      margin: 10px auto;
+      padding: 15px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .word {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0077cc;
+    }
+
+    .meaning {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <h1>📘 English to Hindi Word Meaning (500)</h1>
+    <button onclick="startApp()">Start</button>
+  </div>
+
+  <!-- Word List -->
+  <div id="word-list">
+    <h2>Word Meanings</h2>
+
+    <div class="card">
+      <div class="word">1) Hello</div>
+      <div class="meaning">नमस्ते</div>
+    </div>
+
+    <div class="card">
+      <div class="word">2) How are you</div>
+      <div class="meaning">आप कैसे हैं</div>
+    </div>
+
+    <div class="card">
+      <div class="word">3) Good Morning</div>
+      <div class="meaning">सुप्रभात</div>
+    </div>
+
+    <div class="card">
+      <div class="word">4) Thank you</div>
+      <div class="meaning">धन्यवाद</div>
+    </div>
+
+    <div class="card">
+      <div class="word">5) Sorry</div>
+      <div class="meaning">माफ़ कीजिये</div>
+    </div>
+    <div class="card">
+      <div class="word">6) guest</div>
+      <div class="meaning">अतिथि</div>
+    </div>
+    <div class="card">
+      <div class="word">7) Relative</div>
+      <div class="meaning">रिश्तेदार</div>
+    </div>
+    <div class="card">
+      <div class="word">8) Enemy</div>
+      <div class="meaning">दुश्मन</div>
+    </div>
+    <div class="card">
+      <div class="word">9) Tenant</div>
+      <div class="meaning">किराएदार</div>
+    </div>
+    <div class="card">
+      <div class="word">10) Landlord</div>
+      <div class="meaning">मकान 
+      मालिक</div>
+    </div>
+      <div class="card">
+        <div class="word">11) Contractor</div>
+        <div class="meaning">ठेकेदार</div>
+      </div>
+      <div class="card">
+        <div class="word">12) Sweeper</div>
+        <div class="meaning">सफ़ाई 
+        करनेवाला</div>
+      </div>
+      <div class="card">
+        <div class="word">13) During</div>
+        <div class="meaning">दौरान</div>
+      </div>
+      <div class="card">
+        <div class="word">14) Servent</div>
+        <div class="meaning">नौकर</div>
+      </div>
+      <div class="card">
+        <div class="word">15) Courage</div>
+        <div class="meaning">साहस</div>
+      </div>
+      <div class="card">
+        <div class="word">16) Suggestion</div>
+        <div class="meaning">सुझाव</div>
+      </div>
+      <div class="card">
+        <div class="word">17) Confusion</div>
+        <div class="meaning">भ्रम</div>
+      </div>
+      <div class="card">
+        <div class="word">18) Sensible</div>
+        <div class="meaning">समझदार</div>
+      </div>
+      <div class="card">
+        <div class="word">19) Digestion</div>
+        <div class="meaning">पाचन</div>
+      </div>
+      <div class="card">
+        <div class="word">20) Cost</div>
+        <div class="meaning">लागत</div>
+      </div>
+      <div class="card">
+        <div class="word">21)
+      Interfere</div>
+        <div class="meaning">हस्तक्षेप</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">22) Discover</div>
+        <div class="meaning">खोज करना</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">23) Remember</div>
+        <div class="meaning">याद 
+        करना</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">24) Possibility</div>
+        <div class="meaning">
+          संभावना</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">25) Unite</div>
+        <div class="meaning">एकजुट हो जाओ</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">26) Previous</div>
+        <div class="meaning">पहले का</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">27) Neighbour</div>
+        <div class="meaning">पड़ोसी</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">28) Prevent</div>
+        <div class="meaning">रोकना</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">29) Testify</div>
+        <div class="meaning">गवाही 
+        देना</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">30) Sweeping</div>
+        <div class="meaning">साफ़ करना</div>
+      </div>
+      <div class="card">
+        <div class="word">31) Resign</div>
+        <div class="meaning">इस्तीफ़ा देना</div>
+      </div>
+      <div class="card">
+        <div class="word">32) Nap</div>
+        <div class="meaning">झपकी</div>
+      </div>
+      <div class="card">
+        <div class="word">33) Protest</div>
+        <div class="meaning">विरोध</div>
+      </div>
+      <div class="card">
+        <div class="word">34) Humble</div>
+        <div class="meaning">विनम्र</div>
+      </div
+      <div class="card">
+      <div class="word">35) Tough</div>
+      <div class="meaning">कठिन</div>
+      </div>
+      <div class="card">
+        <div class="word">36) Poverty</div>
+        <div class="meaning">गरीबी</div>
+      </div>
+      <div class="card">
+        <div class="word">37) Praise</div>
+        <div class="meaning">प्रशंसा</div>
+      </div>
+      <div class="card">
+        <div class="word">38) preserve</div>
+        <div class=meaning>संरक्षित   करना</div>
+      </div>
+      <div class="card">
+        <div class="word">39) Pretend</div>
+        <div class="meaning">बहाना  करना</div>
+      </div>
+      <div class="card">
+        <div class="word">40) Reason</div>
+        <div class="meaning">कारण</div>
+      </div>
+      <div class="card">
+        <div class="word">41) Presume</div>
+        <div class="meaning">अनुमान</div>
+      </div>
+      <div class="card">
+        <div class="word">42) Prey</div>
+        <div class="meaning">शिकार</div>
+      </div>
+      <div class="card">
+        <div class="word">43) Hunt</div>
+        <div class="meaning">शिकार</div>
+      </div>
+      <div class="card">
+        <div class="word">44) Priest</div>
+        <div class="meaning">पुजारी</div>
+      </div>
+      <div class="card">
+        <div class="word">45) Proceed</div>
+        <div class="meaning">आगे 
+        बढ़ना</div>
+      </div>
+      <div class="card">
+        <div class="word">46) Prodigal</div>
+        <div class="meaning">उड़ाऊ</div>
+      </div>
+      <div class="card">
+        <div class="word">47) Move on</div>
+        <div class="meaning">आगे बढ़ो</div>
+      </div>
+      <div class="card">
+        <div class="card">
+        <div class="word">48) Laundry</div>
+        <div class="meaning">धोने लायक कपड़े</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="word">49) Ironing</div>
+        <div class="meaning">इस्त्री</div>
+      </div>
+      <div class="card">
+        <div class="word">50) Mopping</div>
+        <div class="meaning">पोंछाई</div>
+      </div>
+      <div class="card">
+        <div class="word">51) Fabulous</div>
+        <div class="meaning">      आश्चर्यजनक</div>
+      </div>
+      <div class="card">
+        <div class="word">52) Vigorous</div>
+        <div class="meaning">ज़ोरदार</div>
+      </div>
+      <div class="card">
+        <div class="word">53) Bring</div>
+        <div class="meaning">लाना</div>
+      </div>
+      <div class="card">
+        <div class="word">54) Luggage</div>
+        <div class="meaning">सामान</div>
+      </div>
+      <div class="card">
+        <div class="word">55) Fear</div>
+        <div class="meaning">डर</div>
+      </div>
+      <div class="card">
+        <div class="word">56) Wear</div>
+        <div class="meaning">घिसाव</div>
+      </div>
+      <div class="card">
+        <div class="word">57) Expensive</div>
+        <div class="meaning">महँगा</div>
+      </div>
+      <div class="card">
+        <div class="word">58) Hope</div>
+        <div class="meaning">आशा</div>
+      </div>
+      <div class="card">
+        <div class="word">59) Harmony</div>
+        <div class="meaning">सद्भाव</div>
+      </div>
+      <div class="card">
+        <div class="word">60) Lie</div>
+        <div class="meaning">झूठ</div>
+      </div>
+      <div class="card">
+        <div class="word">61) Give</div>
+        <div class="meaning">देना</div>
+      </div>
+      <div class="card">
+        <div class="word">62) Take</div>
+        <div class="meaning">लेना</div>
+      </div>
+      <div class="card">
+        <div class="word">63) Leave</div>
+        <div class="meaning">छुट्टी</div>
+      </div>
+      <div class="card">
+        <div class="word">64) Tired</div>
+        <div class="meaning">थका हुआ</div>
+      </div>
+      <div class="card">
+        <div class="word">65) Bowl</div>
+        <div class="meaning">कटोरा</div>
+      </div>
+      <div class="card">
+        <div class="word">66) Boring</div>
+        <div class="meaning">उबाऊ</div>
+      </div>
+      <div class="card">
+        <div class="word">67) Vehicle</div>
+        <div class="meaning">वाहन</div>
+      </div>
+      <div class="card">
+        <div class="word">68) Build</div>
+        <div class="meaning">निर्माण</div>
+      </div>
+      <div class="card">
+        <div class="word">69) Tie</div>
+        <div class="meaning">बाँधना</div>
+      </div>
+      <div class="card">
+        <div class="word">70) Thirsty</div>
+        <div class="meaning">प्यासा</div>
+      </div>
+      <div class="card">
+        <div class="word">71) Cheap</div>
+        <div class="meaning">सस्ता</div>
+      </div>
+      <div class="card">
+        <div class="word">72) Comb</div>
+        <div class="meaning">कंघा</div>
+      </div>
+      <div class="card">
+        <div class="word">73) Humility </div>
+        <div class="meaning">विनम्रता</div>
+      </div>
+      <div class="card">
+        <div class="word">74) Tricks</div>
+        <div class="meaning">चाल</div>
+      </div>
+      <div class="card">
+        <div class="word">75) Production</div>
+        <div class="meaning">उत्पादन</div>
+      </div>
+      <div class="card">
+        <div class="word">76) Excellent</div>
+        <div class="meaning">उत्कृष्ट</div>
+      </div>
+      <div class="card">
+        <div class="word">77) Resources</div>
+        <div class="meaning">संसाधन</div>
+      </div>
+      <div class="card">
+        <div class="word">78) Property</div>
+        <div class="meaning">संपत्ति</div>
+      </div>
+      <div class="card">
+        <div class="word">79)  Clever</div>
+        <div class="meaning">चतुर</div>
+      </div>
+      <div class="card">
+        <div class="word">80) Care</div>
+        <div class="meaning">देखभाल</div>
+      </div>
+      <div class="card">
+        <div class="word">81) Repair</div>
+        <div class="meaning">मरम्मत</div>
+      </div>
+      <div class="card">
+        <div class="word">82) Restoring</div>
+        <div class="meaning">
+          पुनर्स्थापित कर रहा है</div>
+      </div>
+      <div class="card">
+        <div class="word">83) Suffering</div>
+        <div class="meaning">कष्ट</div>
+      </div>
+      <div class="card">
+        <div class="word">84) Humor</div>
+        <div class="meaning">हास्य</div>
+      </div>
+      <div class="card">
+        <div class="word">85) Honor</div>
+        <div class="meaning">सम्मान</div>
+      </div>
+      <div class="card">
+        <div class="word">86) Healing</div>
+        <div class="meaning">
+          उपचारात्मक</div>
+      </div>
+      <div class="card">
+        <div class="word">87) Clothes</div>
+        <div class="meaning">कपड़े</div>
+      </div>
+      <div class="card">
+        <div class="word">88) Tart</div>
+        <div class="meaning">तीखा</div>
+      </div>
+      <div class="card">
+        <div class="word">89) Alert</div>
+        <div class="meaning">चेतावनी</div>
+      </div>
+      <div class="card">
+        <div class="word">90) Tasteless</div>
+        <div class="meaning">को फीका</div>
+      </div>
+      <div class="card">
+        <div class="word">91) Attractive</div>
+        <div class="meaning">आकर्षक</div>
+      </div>
+      
+      <div class="card">
+        <div class="word">92) Blonde</div>
+        <div class="meaning">गोरा</div>
+      </div>
+      <div class="card">
+        <div class="word">93) Bloody</div>
+        <div class="meaning">खूनी</div>
+      </div>
+      <div class="card">
+        <div class="word">94) Wisdom</div>
+        <div class="meaning">बुद्धि</div>
+      </div>
+      <div class="card">
+        <div class="word">95) Vacancy</div>
+        <div class="meaning">रिक्ति</div>
+      </div>
+      <div class="card">
+        <div class="word">96) Expose</div>
+        <div class="meaning">बेनकाब करने के लिए</div>
+      </div>
+      <div class="card">
+        <div class="word">97) Welfare</div>
+        <div class="meaning">कल्याण</div>
+      </div>
+      <div class="card">
+        <div class="word">98) Sticky</div>
+        <div class="meaning">चिपचिपा</div>
+      </div>
+      <div class="card">
+        <div class="word">99) Shirker</div>
+        <div class="meaning">कामचोर</div>
+      </div>
+      <div class="card">
+        <div class="word">100) Slacker</div>
+        <div class="meaning">आलसी</div>
+      </div>
+      <div class="card">
+        <div class="word">101) Make</div>
+        <div class="meaning">बनाना</div>
+      </div>
+      <div class="card">
+        <div class="word">102) Manage</div>
+        <div class="meaning">प्रबंधित करना</div>
+      </div>
+      <div class="card">
+        <div class="word">103) Discussion</div>
+        <div class="meaning">बहस</div>
+      </div>
+      <div class="card">
+        <div class="word">104) Discuss</div>
+        <div class="meaning">चर्चा 
+        करना</div>
+      </div>
+      <div class="card">
+        <div class="word">105) Outside</div>
+        <div class="meaning">बाहर</div>
+      </div>
+      <div class="card">
+        <div class="word">106) Progress</div>
+        <div class="meaning">प्रगति</div>
+      </div>
+      <div class="card">
+        <div class="word">107) Justice</div>
+        <div class="meaning">न्याय</div>
+      </div>
+      <div class="card">
+        <div class="card">
+          <div class="word">108) Apologies</div>
+          <div class="meaning">क्षमा याचना</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="word">109) Unemployed</div>
+        <div class="meaning">
+          बेरोज़गार</div>
+      </div>
+      <div class="card">
+        <div class="word">110) Democracy</div>
+        <div class="meaning">प्रजातंत्र</div>
+      </div>
+      <div class="card">
+        <div class="word">111) Decrement</div>
+        <div class="meaning">घटती</div>
+      </div>
+      <div class="card">
+        <div class="word">112) Dismiss</div>
+        <div class="meaning">नकार 
+        देना</div>
+      </div>
+      <div class="card">
+        <div class="word">113) Digestion</div>
+        <div class="meaning">पाचन</div>
+      </div>
+      <div class="card">
+        <div class="word">114) Demotion</div>
+        <div class="meaning">
+          पदावनति</div>
+      </div>
+      <div class="card">
+        <div class="word">115) Know</div>
+        <div class="meaning">जानना</div>
+      </div>
+      <div class="card">
+        <div class="word">116) Growth</div>
+        <div class="meaning">विकास</div>
+      </div>
+      <div class="card">
+        <div class="word">117) Hooligans</div>
+        <div class="meaning">बदमाश</div>
+      </div>
+      <div class="card">
+        <div class="word">118) Rogue</div>
+        <div class="meaning">दुष्ट</div>
+      </div>
+      <div class="card">
+        <div class="word">119)
+        Wicked</div>
+        <div class="meaning">दुष्ट</div>
+      </div>
+      <div class="card">
+        <div class="word">120) employment</div>
+        <div class="meaning">रोज़गार</div>
+      </div>
+      <div class="card">
+        <div class="word">121) Melt</div>
+        <div class="meaning">पिघलना</div>
+      </div>
+      <div class="card">
+        <div class="word">122) Wheedle</div>
+        <div class="meaning">मान जाओ ना</div>
+      </div>
+      <div class="card">
+        <div class="word">123) Virtuous</div>
+        <div class="meaning">धार्मिक</div>
+      </div>
+      <div class="card">
+        <div class="word">124) Crush</div>
+        <div class="meaning">कुचलना</div>
+      </div>
+      <div class="card">
+        <div class="word">125) Assume</div>
+        <div class="meaning">मान 
+        लीजिए</div>
+      </div>
+      <div class="card">
+        <div class="word">126) Suppose</div>
+        <div class="meaning">कल्पना करना</div>
+      </div>
+      <div class="card">
+        <div class="word">127) Assembly</div>
+        <div class="meaning">
+          विधानसभा</div>
+      </div>
+      <div class="card">
+        <div class="word">128) Attempt</div>
+        <div class="meaning">कोशिश करना</div>
+      </div>
+      <div class="card">
+        <div class="word">129) try</div>
+        <div class="meaning">कोशिश</div>
+      </div>
+      <div class="card">
+        <div class="word">130) Effort</div>
+        <div class="meaning">कोशिश</div>
+      </div>
+      <div class="card">
+        <div class="word">131) Awake</div>
+        <div class="meaning">जागना</div>
+      </div>
+      <div class="card">
+        <div class="word">132) Wake up</div>
+        <div class="meaning">जागो</div>
+      </div>
+      <div class="card">
+        <div class="word">133) Assist</div>
+        <div class="meaning">सहायता देना</div>
+      </div>
+      <div class="card">
+        <div class="word">134) Assignment</div>
+        <div class="meaning">कार्यभार</div>
+      </div>
+      <div class="card">
+        <div class="word">135) Workload</div>
+        <div class="meaning">कार्यभार</div>
+      </div>
+      <div class="card">
+        <div class="word">136) Arrive</div>
+        <div class="meaning">पहुंचना</div>
+      </div>
+      <div class="card">
+        <div class="word">137) Argue</div>
+        <div class="meaning">बहस</div>
+      </div>
+      <div class="card">
+        <div class="word">138) Approach</div>
+        <div class="meaning">
+          दृष्टिकोण</div>
+      </div>
+    <div class="card">
+      <div class="word">139)
+      Appear</div>
+      <div class="meaning">रूप लेना</div>
+    </div>
+    <div class="card">
+      <div class="word">140) Look alike</div>
+      <div class="meaning">एक जैसे 
+      दिखते हैं</div>
+    </div>
+    <div class="card">
+      <div class="word">141) Admire</div>
+      <div class="meaning">प्रशंसा 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">142) Ancient</div>
+      <div class="meaning">प्राचीन</div>
+    </div>
+    <div class="card">
+      <div class="word">143) To entertain</div>
+      <div class="meaning">मन 
+      बहलाना</div>
+    </div>
+    <div class="card">
+      <div class="word">144) Although</div>
+      <div class="meaning">हालांकि</div>
+    </div>
+    <div class="card">
+      <div class="word">145) Aim</div>
+      <div class="meaning">उद्देश्य</div>
+    </div>
+    <div class="card">
+      <div class="word">146) Afford</div>
+      <div class="meaning">जुटाना</div>
+    </div>
+    <div class="card">
+      <div class="word">147) Act</div>
+      <div class="meaning">कार्य</div>
+    </div>
+    <div class="card">
+      <div class="word">148) Ability</div>
+      <div class="meaning">क्षमता</div>
+    </div>
+    <div class="card">
+      <div class="word">149) Abandon</div>
+      <div class="meaning">छोड़ देना</div>
+    </div>
+    <div class="card">
+      <div class="word">150) Waive</div>
+      <div class="meaning">माफ</div>
+    </div>
+    <div class="card">
+      <div class="word">151) Silly</div>
+      <div class="meaning">नासमझ</div>
+    </div>
+    <div class="card">
+      <div class="word">152) Scold</div>
+      <div class="meaning">डांटना</div>
+    </div>
+    <div class="card">
+      <div class="word">153) Distress</div>
+      <div class="meaning">तनाव</div>
+    </div>
+    <div class="card">
+      <div class="word">154) District</div>
+      <div class="meaning">ज़िला</div>
+    </div>
+    <div class="card">
+      <div class="word">155) Defame</div>
+      <div class="meaning">बदनाम 
+      करना</div>
+    </div> 
+    <div class="card">
+      <div class="word">156) Distribute</div>
+      <div class="meaning">वितरित करें</div>
+    </div>
+    <div class="card">
+      <div class="word">157) Radiant</div>
+      <div class="meaning">उज्ज्वल</div>
+    </div>
+    <div class="card">
+      <div class="word">158) Elegant</div>
+      <div class="meaning">सुरुचिपूर्ण</div>
+    </div>
+    <div class="card">
+      <div class="word">159) Grace</div>
+      <div class="meaning">अनुग्रह</div>
+    </div>
+    <div class="card">
+      <div class="word">160) Magnetic</div>
+      <div class="meaning">चुंबकीय</div>
+    </div>
+    <div class="card">
+      <div class="word">161) Shopkeeper</div>
+      <div class="meaning">दुकानदार</div>
+    </div>
+    <div class="card">
+      <div class="word">162) Income</div>
+      <div class="meaning">आय</div>
+    </div>
+    <div class="card">
+      <div class="word">163) Adapt</div>
+      <div class="meaning">अनुकूल 
+      बनाना</div>
+    </div>
+    <div class="card">
+      <div class="word">164) Host</div>
+      <div class="meaning">मेज़बान</div>
+    </div>
+    <div class="card">
+      <div class="word">165) Haste</div>
+      <div class="meaning">जल्दबाजी</div>
+    </div>
+    <div class="card">
+      <div class="word">166) Quick</div>
+      <div class="meaning">जल्दी</div>
+    </div>
+    <div class="card">
+      <div class="word">167) Devote</div>
+      <div class="meaning">त्याग देना</div>
+    </div>
+    <div class="card">
+      <div class="word">168) Dedicated</div>
+      <div class="meaning">समर्पित</div>
+    </div>
+    <div class="card">
+      <div class="word">169) Dispense</div>
+      <div class="meaning">विभाग करना</div>
+    </div>
+    <div class="card">
+      <div class="word">170) Desert</div>
+      <div class="meaning">मरुस्थल</div>
+    </div>
+    <div class="card">
+      <div class="word">171) Deserve</div>
+      <div class="meaning">योग्य होना</div>
+    </div>
+    <div class="card">
+      <div class="word">172) Defeat</div>
+      <div class="meaning">हराना</div>
+    </div>
+    <div class="card">
+      <div class="word">173) Deprive</div>
+      <div class="meaning">वंचित</div>
+    </div>
+    <div class="card">
+      <div class="word">174) Scream</div>
+      <div class="meaning">चीख</div>
+    </div>
+    <div class="card">
+      <div class="word">175) Isolation</div>
+      <div class="meaning">अलग करना</div>
+    </div>
+    <div class="card">
+      <div class="word">176) Glorious</div>
+      <div class="meaning">यशस्वी</div>
+    </div>
+    <div class="card">
+      <div class="word">177) Rectify</div>
+      <div class="meaning">सुधारो</div>
+    </div>
+    <div class="card">
+      <div class="word">178) Invincible</div>
+      <div class="meaning">अजेय</div>
+    </div>
+    <div class="card">
+      <div class="word">179) Detection</div>
+      <div class="meaning">पता 
+      लगाना</div>
+    </div>
+    <div class="card">
+      <div class="word">180) detective</div>
+      <div class="meaning">जासूसी</div>
+    </div>
+    <div class="card">
+      <div class="word">181) To liquefy</div>
+      <div class="meaning">द्रवीभूत 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">182) Sink</div>
+      <div class="meaning">डूबना</div>
+    </div>
+    <div class="card">
+      <div class="word">183) Flutter</div>
+      <div class="meaning">फड़फड़ाहट</div>
+    </div>
+    <div class="card">
+      <div class="word">184) Flapping</div>
+      <div class="meaning">फड़फड़ाने</div>
+    </div>
+    <div class="card">
+      <div class="word">185) Prevalent</div>
+      <div class="meaning">प्रचलित</div>
+    </div>
+    <div class="card">
+      <div class="word">186) Existence</div>
+      <div class="meaning">अस्तित्व</div>
+    </div>
+    <div class="card">
+      <div class="word">187) Betrayer</div>
+      <div class="meaning">विश्वासघाती</div>
+    </div>
+    <div class="card">
+      <div class="word">188) private</div>
+      <div class="meaning">निजी</div>
+    </div>
+    <div class="card">
+      <div class="word">189) value</div>
+      <div class="meaning">महत्व</div>
+    </div>
+    <div class="card">
+      <div class="word">190) foundation </div>
+      <div class="meaning">नींव</div>
+    </div>
+    <div class="card">
+      <div class="word">191) Wrestler</div>
+      <div class="meaning">पहलवान</div>
+    </div>
+    <div class="card">
+      <div class="word">192) Zippy</div>
+      <div class="meaning">फुरतीला</div>
+    </div>
+    <div class="card">
+      <div class="word">193) Complaint</div>
+      <div class="meaning">शिकायत</div>
+    </div>
+    <div class="card">
+      <div class="word">194) Interview</div>
+      <div class="meaning">साक्षात्कार</div>
+    </div>
+    <div class="card">
+      <div class="word">195) Interrupt</div>
+      <div class="meaning">रुकावट 
+      डालना</div>
+    </div>
+    <div class="card">
+      <div class="word">196) Blame</div>
+      <div class="meaning">दोष</div>
+    </div>
+    <div class="card">
+      <div class="word">197) Disappointment</div>
+      <div class="meaning">निराशा</div>
+    </div>
+    <div class="card">
+      <div class="word">198) Backbiting</div>
+      <div class="meaning">चुगली 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">199) Mockery</div>
+      <div class="meaning">उपहास</div>
+    </div>
+    <div class="card">
+      <div class="word">200) Ridicule</div>
+      <div class="meaning">उपहास</div>
+    </div>
+    <div class="card">
+      <div class="word">201) Taunt</div>
+      <div class="meaning">उपहास</div>
+    </div>
+    <div class="card">
+      <div class="word">202) Infact</div>
+      <div class="meaning">वास्तव में</div>
+    </div>
+    <div class="card">
+      <div class="word">203) Obstruct</div>
+      <div class="meaning">बाधा 
+      डालती</div>
+    </div>
+    <div class="card">
+      <div class="word">204) Preventive</div>
+      <div class="meaning">निवारक</div>
+    </div>
+    <div class="card">
+      <div class="word">205) Instructions</div>
+      <div class="meaning">अनुदेश</div>
+    </div>
+    <div class="card">
+      <div class="word">206) Headache</div>
+      <div class="meaning">सिरदर्द</div>
+    </div>
+    <div class="card">
+      <div class="word">207) Headlines</div>
+      <div class="meaning">मुख्य बातें</div>
+    </div>
+    <div class="card">
+      <div class="word">208) Familiar</div>
+      <div class="meaning">जानकार</div>
+    </div>
+    <div class="card">
+      <div class="word">209) Publication</div>
+      <div class="meaning">प्रकाशनों</div>
+    </div>
+    <div class="card">
+      <div class="word">210) Inquiry</div>
+      <div class="meaning">पूछ-ताछ</div>
+    </div>
+    <div class="card">
+      <div class="word">211) check</div>
+      <div class="meaning">212) </div>
+      <div class="meaning">जाँच करना</div>
+    </div>
+    <div class="card">
+      <div class="word">213) Blurred</div>
+      <div class="meaning">धुंधला</div>
+    </div>
+    <div class="card">
+      <div class="word">214) Foggy</div>
+      <div class="meaning">कोहरे 
+      वाला</div>
+    </div> 
+    <div class="card">
+      <div class="word">215) Properly</div>
+      <div class="meaning">ठीक से</div>
+    </div>
+    <div class="card">
+      <div class="word">216) Occupation</div>
+      <div class="meaning">पेशा</div>
+    </div>
+    <div class="card">
+      <div class="word">217) Occur</div>
+      <div class="meaning">घटित होना</div>
+    </div>
+    <div class="card">
+      <div class="word">218) Profession</div>
+      <div class="meaning">व्यवसाय</div>
+    </div>
+    <div class="card">
+      <div class="word">219) Business</div>
+      <div class="meaning">व्यापार</div>
+    </div>
+    <div class="card">
+      <div class="word">220) Offend</div>
+      <div class="meaning">अपमान 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">221) insult</div>
+      <div class="meaning">अपमान 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">222) Execution</div>
+      <div class="meaning">निष्पादन</div>
+    </div>
+    <div class="card">
+      <div class="word">223) Excellent</div>
+      <div class="meaning">उत्कृष्ट</div>
+    </div>
+    <div class="card">
+      <div class="word">224) Omit</div>
+      <div class="meaning">छोड़ देना</div>
+    </div>
+    <div class="card">
+      <div class="word">225) Tendancy </div>
+      <div class="meaning">प्रवृत्ति</div>
+    </div>
+    <div class="card">
+      <div class="word">226) Trend</div>
+      <div class="meaning">रुझान</div>
+    </div>
+    <div class="card">
+      <div class="word">227)
+      Leaning</div>
+      <div class="meaning">झुकाव</div>
+    </div>
+    <div class="card">
+      <div class="word">228) Locality</div>
+      <div class="meaning">इलाका</div>
+    </div>
+    <div class="card">
+      <div class="word">229) Area</div>
+      <div class="meaning">क्षेत्र</div>
+    </div>
+    <div class="card">
+      <div class="word">230) Locally</div>
+      <div class="meaning">स्थानीय 
+      रूप से</div>
+    </div>
+    <div class="card">
+      <div class="word">231) Defame</div>
+      <div class="meaning">बदनाम 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">232) Scold</div>
+      <div class="meaning">डांटना</div>
+    </div>
+    <div class="card">
+      <div class="word">233) Scolded</div>
+      <div class="meaning">डांटा</div>
+    </div>
+    <div class="card">
+      <div class="word">234) Distress</div>
+      <div class="meaning">तनाव</div>
+    </div>
+    <div class="card">
+      <div class="word">235) Tension</div>
+      <div class="meaning">परेशानी</div>
+    </div>
+    <div class="card">
+      <div class="word">236) Trouble</div>
+      <div class="meaning">मुश्किल</div>
+    </div>
+    <div class="card">
+      <div class="word">237) Difficult</div>
+      <div class="meaning">कठिन</div>
+    </div>
+    <div class="card">
+      <div class="word">238) Obscure</div>
+      <div class="meaning">अस्पष्ट</div>
+    </div>
+    <div class="card">
+      <div class="word">239) Unclear</div>
+      <div class="meaning">अस्पष्ट</div>
+    </div>
+    <div class="card">
+      <div class="word">240) Silly</div>
+    <div class="meaning">नासमझ</div>
+    </div>
+    <div class="card">
+      <div class="word">241)
+      Dumb </div>
+      <div class="meaning">गूंगा</div>
+    </div>
+    <div class="card">
+      <div class="word">242) Distribute</div>
+      <div class="meaning">वितरित 
+      करें</div>
+    </div>
+    <div class="card">
+      <div class="word">243) Discussion</div>
+      <div class="meaning">बहस</div>
+    </div>
+    <div class="card">
+      <div class="word">244) Distribution</div>
+      <div class="meaning">वितरण</div>
+    </div>
+    <div class="card">
+      <div class="word">245) Describe</div>
+      <div class="meaning">वर्णन 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">246) Described </div>
+      <div class="meaning">बताया गया है</div>
+    </div>
+    <div class="card">
+      <div class="word">247) Decision</div>
+      <div class="meaning">फ़ैसला</div>
+    </div>
+    <div class="card">
+      <div class="word">248) Idea</div>
+      <div class="meaning">विचार</div>
+    </div>
+    <div class="card">
+      <div class="word">249) Opinion</div>
+      <div class="meaning">राय</div>
+    </div>
+    <div class="card">
+      <div class="word">250) Advice</div>
+      <div class="meaning">सलाह</div>
+    </div>
+    <div class="card">
+      <div class="word">251) Advocate</div>
+      <div class="meaning">वकील</div>
+    </div>
+    <div class="card">
+      <div class="word">252) Supporter</div>
+      <div class="meaning">समर्थक</div>
+    </div>
+    <div class="card">
+      <div class="word">253) Shelter Giver</div>
+      <div class="meaning">आश्रय 
+      दाता</div>
+    </div>
+    <div class="card">
+      <div class="word">254) Patron</div>
+      <div class="meaning">संरक्षक</div>
+    </div>
+    <div class="card">
+      <div class="word">255) Assistant</div>
+      <div class="meaning">सहायक</div>
+    </div>
+    <div class="card">
+      <div class="word">256) Secondary</div>
+      <div class="meaning">माध्यमिक</div>
+    </div>
+    <div class="card">
+      <div class="word">257) Minor</div>
+      <div class="meaning">नाबालिग</div>
+    </div>
+    <div class="card">
+      <div class="word">258) Small</div>
+      <div class="meaning">छोटा</div>
+    </div>
+    <div class="card">
+      <div class="word">259) Little</div>
+      <div class="meaning">थोड़ा</div>
+    </div>
+    <div class="card">
+      <div class="word">260) Some?</div>
+      <div class="meaning">कुछ?</div>
+    </div>
+    <div class="card">
+      <div class="word">261) Miniature</div>
+      <div class="meaning">लघु</div>
+    </div>
+    <div class="card">
+      <div class="word">262) Succinct</div>
+      <div class="meaning">संक्षिप्त</div>
+    </div>
+    <div class="card">
+      <div class="word">263) Short Term</div>
+      <div class="meaning">लघु 
+      अवधि</div>
+    </div>
+    <div class="card">
+      <div class="word">264) Shiny</div>
+      <div class=meaning>चमकदार</div>
+    </div>
+    <div class="card">
+      <div class="word">265) Bright</div>
+      <div class="meaning">उज्ज्वल</div>
+    </div>
+    <div class="card">
+      <div class="word">266) Radiant</div>
+      <div class="meaning">दीप्तिमान</div>
+    </div>
+    <div class="card">
+      <div class="word">267) Clear </div>
+      <div class="meaning">स्पष्ट</div>
+    </div>
+    <div class="card">
+      <div class="word">268) Purely</div>
+      <div class="meaning">विशुद्ध रूप से</div>
+    </div>
+    <div class="card">
+      <div class="word">269) Only</div>
+      <div class="meaning">केवल</div>
+    </div>
+    <div class="card">
+      <div class="word">270) Alone</div>
+      <div class="meaning">अकेला</div>
+    </div>
+    <div class="card">
+      <div class="word">271) Uninhabited</div>
+      <div class="meaning">निर्जन</div>
+    </div>
+    <div class="card">
+      <div class="word">272) Desolate</div>
+      <div class="meaning">उजाड़</div>
+    </div>
+    <div class="card">
+      <div class="word">273) Deserted</div>
+      <div class="meaning">सुनसान</div>
+    </div>
+    <div class="card">
+      <div class="word">274) Loneliness</div>
+      <div class="meaning">अकेलापन</div>
+    </div>
+    <div class="card">
+      <div class="word">275) Desolation</div>
+      <div class="meaning">वीरानी</div>
+    </div>
+    <div class="card">
+      <div class="word">276) To Ignore</div>
+      <div class="meaning">अनदेखी 
+      करने के लिए</div>
+    </div>
+    <div class="card">
+      <div class="word">277) Disrespect</div>
+      <div class="meaning">अनादर</div>
+    </div>
+    <div class="card">
+      <div class="word">278) Disregard</div>
+      <div class="meaning">अवहेलना</div>
+    </div>
+    <div class="card">
+      <div class="word">279) Hatred</div>
+      <div class="meaning">घृणा</div>
+    </div>
+    <div class="card">
+      <div class="word">280) Jealousy</div>
+      <div class="meaning">जलन</div>
+    </div>
+    <div class="card">
+      <div class="word">281) Burn</div>
+      <div class="meaning">जलना</div>
+    </div>
+    <div class="card">
+      <div class="word">282) Injury</div>
+      <div class="meaning">चोट</div>
+    </div>
+    <div class="card">
+      <div class="word">283) Damage</div>
+      <div class="meaning">हानि</div>
+    </div>
+    <div class="card">
+      <div class="word">284) Loss</div>
+      <div class="meaning">नुकसान</div>
+    </div>
+    <div class="card">
+      <div class="word">285) Scrap</div>
+      <div class="meaning">कतरन</div>
+    </div>
+    <div class="card">
+      <div class="word">286) Peeling Work</div>
+      <div class="meaning">छीलने का काम</div>
+    </div>
+    <div class="card">
+      <div class="word">287) Wall</div>
+      <div class="meaning">दीवार</div>
+    </div>
+    <div class="card">
+      <div class="word">288) circle</div>
+      <div class="meaning">घेरा</div>
+    </div>
+    <div class="card">
+      <div class="word">289) Foreign Enclave</div>
+      <div class="meaning">विदेशी 
+      अन्तःक्षेत्र</div>
+    </div>
+    <div class="card">
+      <div class="word">290) Foreign</div>
+      <div class="meaning">विदेश</div>
+    </div>
+    <div class="card">
+      <div class="word">291) External</div>
+      <div class="meaning">बाहरी</div>
+    </div>
+    <div class="card">
+      <div class="word">292) Stranger</div>
+      <div class="meaning">अजनबी</div>
+    </div>
+    <div class="card">
+      <div class="word">293) Unknown</div>
+      <div class="meaning">अज्ञात</div>
+    </div>
+    <div class="card">
+      <div class="word">294) Anonymous</div>
+      <div class="meaning">गुमनाम</div>
+    </div>
+    <div class="card">
+      <div class="word">295) Nameless</div>
+      <div class="meaning">बेनाम</div>
+    </div>
+    <div class="card">
+      <div class="word">296) Ignorant</div>
+      <div class="meaning">अज्ञानी</div>
+    </div>
+    <div class="card">
+      <div class="word">297) Reluctant</div>
+      <div class="meaning">अनिच्छुक</div>
+    </div>
+    <div class="card">
+      <div class="word">298) Sick</div>
+      <div class="meaning">बीमार</div>
+    </div>
+    <div class="card">
+      <div class="word">299) Unhealthy</div>
+      <div class="meaning">अस्वस्थ</div>
+    </div>
+    <div class="card">
+      <div class="word">300) To Waver</div>
+      <div class="meaning">डगमगा 
+      जाना</div>
+    </div>
+    <div class="card">
+      <div class="word">301) Mention</div>
+      <div class="meaning">उल्लेख</div>
+    </div>
+    <div class="card">
+      <div class="word">302) Measure</div>
+      <div class="meaning">माप</div>
+    </div>
+    <div class="card">
+      <div class="word">303) Overall</div>
+      <div class="meaning">कुल 
+      मिलाकर</div>
+    </div>
+    <div class="card">
+      <div class="word">304) Confuse</div>
+      <div class="meaning">भ्रमित 
+      करना</div>
+    </div>
+    <div class="card">
+      <div class="word">305) Broadcast</div>
+      <div class="meaning">प्रसारण</div>
+    </div>
+    <div class="card">
+      <div class="word">306) Breathing</div>
+      <div class="meaning">साँस लेने</div>
+    </div>
+    <div class="card">
+      <div class="word">307) Covered</div>
+      <div class="meaning">ढका हुआ</div>
+    </div>
+    <div class="card">
+      <div class="word">308) At Least</div>
+      <div class="meaning">कम से कम</div>
+    </div>
+    <div class="card">
+      <div class="word">309) Resistance</div>
+      <div class="meaning">प्रतिरोध</div>
+    </div>
+    <div class="card">
+      <div class="word">310) Economy</div>
+      <div class="meaning">अर्थव्यवस्था</div>
+    </div>
+    <div class="card">
+      <div class="word">311) Available</div>
+      <div class="meaning">उपलब्ध</div>
+    </div>
+    <div class="card">
+      <div class="word">312) Suspension</div>
+      <div class="meaning">निलंबन</div>
+    </div>
+    <div class="card">
+      <div class="word">313) Suspicious</div>
+      <div class="meaning">संदिग्ध</div>
+    </div>
+    <div class="card">
+      <div class="word">314) Special</div>
+      <div class="meaning">विशेष</div>
+    </div>
+    <div class="card">
+      <div class="word">315) Specific</div>
+      <div class="meaning">विशिष्ट</div>
+    </div>
+    <div class="card">
+      <div class="word">316) Specialists</div>
+      <div class="meaning">विशेषज्ञों</div>
+    </div>
+    <div class="card">
+      <div class="word">317) Extra</div>
+      <div class="meaning">अधिक</div>
+    </div>
+    <div class="card">
+      <div class="word">318) Threaten</div>
+      <div class="meaning">धमकी देना</div>
+    </div>
+    <div class="card">
+      <div class="word">319) succesd</div>
+      <div class="meaning">सफलता</div>
+    </div>
+    <div class="card">
+      <div class="word">320) Snoring</div>
+      <div class="meaning">खर्राटे</div>
+    </div>
+    <div class="card">
+      <div class="word">321) Supporter</div>
+      <div class="meaning">समर्थक</div>
+    </div>
+    <div class="card">
+      <div class="word">322) Supply</div>
+      <div class="meaning">आपूर्ति</div>
+    </div>
+    <div class="card">
+      <div class="word">323) Purpose</div>
+      <div class="meaning">उद्देश्य</div>
+    </div>
+    <div class="card">
+      <div class="word">324) Contact</div>
+      <div class="meaning">संपर्क</div>
+    </div>
+    <div class="card">
+      <div class="word">325) Condition</div>
+      <div class="meaning">शर्त</div>
+    </div>
+    <div class="card">
+      <div class="word">326) Worship</div>
+      <div class="meaning">उपासना</div>
+    </div>
+    <div class="card">
+      <div class="word">327) Result</div>
+      <div class="meaning">परिणाम</div>
+    </div>
+    <div class="card">
+      <div class="word">328) Response</div>
+      <div class="meaning">प्रतिक्रिया</div>
+    </div>
+    <div class="card">
+      <div class="word">329) Responsibility</div>
+      <div class="meaning">ज़िम्मेदारी</div>
+    </div>
+    <div class="card">
+      <div class="word">330) Historical</div>
+      <div class="meaning">
+        ऐतिहासिक</div>
+    </div>
+  <div class="card">
+    <div class="word">331) Mythological</div>
+    <div class="meaning">पौराणिक</div>
+  </div>
+  <div class="card">
+    <div class="word">332) Unrealistic</div>
+    <div class="meaning">अवास्तविक</div>
+  </div>
+  <div class="card">
+    <div class="word">333) Unreal</div>
+    <div class="meaning">अवास्तविक</div>
+  </div>
+  <div class="card">
+    <div class="word">334) False</div>
+    <div class="meaning">असत्य</div>
+  </div>
+  <div class="card">
+    <div class="word">335) Untrue</div>
+    <div class="meaning">बेईमान</div>
+  </div>
+  <div class="card">
+    <div class="word">336) Dishonest</div>
+    <div class="meaning">बेईमान</div>
+  </div>
+  <div class="card">
+    <div class="word">337) Crooked</div>
+    <div class="meaning">टेढ़ा</div>
+  </div>
+  <div class="card">
+    <div class="word">338) Curve</div>
+    <div class="meaning">वक्र</div>
+  </div>
+  <div class="card">
+    <div class="word">339) Dizzy</div>
+    <div class="meaning">चक्कर</div>
+  </div>
+  <div class="card">
+    <div class="word">340) Curiosity</div>
+    <div class="meaning">जिज्ञासा</div>
+  </div>
+  <div class="card">
+    <div class="word">341) Demanded </div>
+    <div class="meaning">मांग की</div>
+  </div>
+  <div class="card">
+    <div class="word">342) Ask</div>
+    <div class="meaning">पूछना</div>
+  </div>
+  <div class="card">
+    <div class="word">343) Enquiry </div>
+    <div class="meaning">जाँच करना</div>
+  </div>  
+  <div class="card">
+    <div class="word">344) Exclusive</div>
+    <div class="meaning">अनन्य</div>
+  </div>
+  <div class="card">
+    <div class="word">345) Unaccustomed</div>
+    <div class="meaning">अनभ्यस्त</div>
+  </div>
+  <div class="card">
+    <div class="word">346)
+      Unbeatable</div>
+      <div class="meaning">अपराजेय</div>
+  </div>
+  <div class="card">
+    <div class="word">347) Accessible on</div>
+    <div class="meaning">पर पहुंच 
+    योग्य</div>
+  </div>
+  <div class="card">
+    <div class="word">348) Pronounced</div>
+    <div class="meaning">उच्चारित</div>
+  </div>
+  <div class="card">
+    <div class="word">349) Fixed</div>
+    <div class="meaning">तय</div>
+  </div>
+  <div class="card">
+    <div class="word">350) Regular</div>
+    <div class="meaning">नियमित</div>
+  </div>
+  <div class="card">
+    <div class="word">351) Project</div>
+<div class="meaning">परियोजना</div>
+  </div>
+  <div class="card">
+    <div class="word">352) Texture</div>
+    <div class="meaning">बनावट</div>
+  </div>
+  <div class="card">
+    <div class="word">353) Structure</div>
+    <div class="meaning">संरचना</div>
+  </div>
+  <div class="card">
+    <div class="word">354) Deception</div>
+    <div class="meaning">धोखे</div>
+  </div>
+  <div class="card">
+    <div class="word">355) Swindlerclass=""</div>
+    <div class="meaning">ठग</div>
+  </div>
+  <div class="card">
+    <div class="word">356) Flattery</div>
+    <div class="meaning">चापलूसी</div>
+  </div>
+  <div class="card">
+    <div class="word">357) Finite</div>
+    <div class="meaning">परिमित</div>
+  </div>
+  <div class="card">
+    <div class="word">358)  Salute</div>
+    <div class="meaning">सलाम</div>
+  </div>
+  <div class="card">
+    <div class="word">359) Greetings!</div>
+    <div class="meaning">अभिवादन!</div>
+  </div>
+  <div class="card">
+    <div class="word">360) Skill</div>
+    <div class="meaning">कौशल</div>
+  </div>
+  <div class="card">
+    <div class="word">361) Still</div>
+    <div class="meaning">फिर भी</div>
+  </div> 
+  <div class="card">
+    <div class="word">362) Emaciated</div>
+    <div class="meaning">क्षीण</div>
+  </div>
+  <div class="card">
+    <div class="word">363) Powerlessness</div>
+    <div class="meaning">शक्तिहीनता</div>
+  </div>
+  <div class="card">
+    <div class="word">364) Impotence</div>
+    <div class="meaning">नपुंसकता</div>
+  </div>
+  <div class="card">
+    <div class="word">365) Stationery</div>
+    <div class="meaning">लेखन 
+    सामग्री</div>
+  </div>
+  <div class="card">
+    <div class="word">366) Conscious</div>
+    <div class="meaning">सचेत</div>
+  </div>
+  <div class="card">
+    <div class="word">367) Vigilant</div>
+    <div class="meaning">चौकस</div>
+  </div>
+  <div class="card">
+    <div class="word">368) Attack</div>
+    <div class="meaning">आक्रमण 
+    करना</div>
+  </div>
+  <div class="card">
+    <div class="word">369) Pounce</div>
+    <div class="meaning">झपटे</div>
+  </div>
+  <div class="card">
+    <div class="word">370) Rush</div>
+    <div class="meaning">जल्दबाज़ी करना</div>
+  </div>
+  <div class="card">
+    <div class="word">371) Enthusiastic</div>
+    <div class="meaning">उत्साही</div>
+  </div>
+  <div class="card">
+    <div class="word">372) Brave</div>
+    <div class="meaning">बहादुर</div>
+  </div>
+  <div class="card">
+    <div class="word">373) Heroic</div>
+    <div class="meaning">वीर रस</div>
+  </div>
+  <div class="card">
+    <div class="word">374) Daring</div>
+    <div class="meaning">साहसी</div>
+  </div>
+  <div class="card">
+    <div class="word">375) Adventure</div>
+    <div class="meaning">साहसिक 
+    काम</div>
+  </div>
+  <div class="card">
+    <div class="word">376) Nationwide</div>
+    <div class="meaning">राष्ट्रव्यापी</div>
+  </div>
+  <div class="card">
+    <div class="word">377) Sharpness</div>
+    <div class="meaning">तीखेपन</div>
+  </div>
+  <div class="card">
+    <div class="word">378) Sadness</div>
+    <div class="meaning">उदासी</div>
+  </div>
+  <div class="card">
+    <div class="word">379) Depression</div>
+    <div class="meaning">अवसाद</div>
+  </div>
+  <div class="card">
+    <div class="word">380) Fading</div>
+    <div class="meaning">लुप्त होती</div>
+  </div>
+  <div class="card">
+    <div class="word">381) feeding</div>
+    <div class="meaning">खिला</div>
+  </div>
+  <div class="card">
+    <div class="word">382) To Feed</div>
+    <div class="meaning">खिलाना</div>
+  </div>
+  <div class="card">
+    <div class="word">383) Meet</div>
+    <div class="meaning">मिलो</div>
+  </div>
+  <div class="card">
+    <div class="word">384) Mingle</div>
+    <div class="meaning">मिल जाना</div>
+  </div>
+  <div class="card">
+    <div class="word">385) Perhaps</div>
+    <div class="meaning">शायद</div>
+  </div>
+  <div class="card">
+    <div class="word">386) Is Possible</div>
+    <div class="meaning">संभव है</div>
+  </div>
+  <div class="card">
+    <div class="word">387) Probability</div>
+    <div class="meaning">संभावना</div>
+  </div>
+  <div class="card">
+    <div class="word">388) Feasibility</div>
+    <div class="meaning">साध्यता</div>
+  </div>
+  <div class="card">
+    <div class="word">389) Causality</div>
+    <div class="meaning">करणीय</div>
+  </div>
+  <div class="card">
+    <div class="word">390) Mysterious</div>
+    <div class="meaning">रहस्यमय</div>
+  </div>
+  <div class="card">
+    <div class="word">391) Secure</div>
+    <div class="meaning">सुरक्षित</div>
+  </div>
+  <div class="card">
+    <div class="word">393) keeping</div>
+    <div class="meaning">रखते हुए</div>
+  </div>
+  <div class="card">
+    <div class="word">394) Keep</div>
+    <div class="meaning">रखना</div>
+  </div>
+  <div class="card">
+    <div class="word">395) Lay</div>
+    <div class="meaning">बिछाना</div>
+  </div>
+  <div class="card">
+    <div class="word">396) Spread</div>
+    <div class="meaning">फैलाना</div>
+  </div>
+  <div class="card">
+    <div class="word">397) Spilled</div>
+    <div class="meaning">बिखरा हुआ</div>
+  </div>
+  <div class="card">
+    <div class="word">398) To Spit Out</div>
+    <div class="meaning">उगलना</div>
+  </div>
+  <div class="card">
+    <div class="word">399) Vomit</div>
+    <div class="meaning">उल्टी</div>
+  </div>
+  <div class="card">
+    <div class="word">400) Limited</div>
+    <div class="meaning">सीमित</div>
+  </div>
+  <div class="card">
+    <div class="word">401) Resources</div>
+    <div class="meaning">संसाधन</div>
+  </div>
+  <div class="card">
+    <div class="word">402) Magnet</div>
+    <div class="meaning">चुंबक</div>
+  </div>
+  <div class="card">
+    <div class="word">403) Recovered</div>
+    <div class="meaning">बरामद</div>
+  </div>
+  <div class="card">
+    <div class="word">404) Shower</div>
+    <div class="meaning">फव्वारा</div>
+  </div>
+  <div class="card">
+    <div class="word">405) The Saviour</div>
+    <div class="meaning">उद्धार करनेवाला</div>
+  </div>
+  <div class="card">
+    <div class="word">406) Jesus</div>
+    <div class="meaning">यीशु</div>
+  </div>
+  <div class="card">
+    <div class="word">407) To Show Respect</div>
+    <div class="meaning">सत्कार करना</div>
+  </div>
+  <div class="card">
+    <div class="word">408) Greet</div>
+    <div class="meaning">अभिवादन 
+    करना</div>
+  </div>
+  <div class="card">
+    <div class="word">409) Hailstone</div>
+    <div class="meaning">ओला</div>
+  </div>
+  <div class="card">
+    <div class="word">410) Torrential Rain</div>
+    <div class="meaning">मूसलाधार 
+    बारिश</div>
+  </div>
+  <div class="card">
+    <div class="word">411) Who</div>
+    <div class="meaning">कौन</div>
+  </div>
+  <div class="card">
+    <div class="word">412) What</div>
+    <div class="meaning">क्या</div>
+  </div>
+  <div class="card">
+    <div class="word">413) Which One</div>
+    <div class="meaning">कौन सा</div>
+  </div>
+  <div class="card">
+    <div class="word">414) When</div>
+    <div class="meaning">कब</div>
+  </div>
+  <div class="card">
+    <div class="word">415) Where</div>
+    <div class="meaning">कहाँ</div>
+  </div>
+  <div class="card">
+    <div class="word">416) Why</div>
+    <div class="meaning">क्यों</div>
+  </div>
+  <div class="card">
+    <div class="word">417) How</div>
+    <div class="meaning">कैसे</div>
+  </div>
+  <div class="card">
+    <div class="word">418) This</div>
+    <div class="meaning">यह</div>
+  </div>
+  <div class="card">
+    <div class="word">419) That</div>
+    <div class="meaning">वह</div>
+  </div>
+  <div class="card">
+    <div class="word">420) Those</div>
+    <div class="meaning">वे</div>
+  </div>
+  <div class="card">
+    <div class="word">421) And</div>
+    <div class=" meaning">और</div>
+  </div>
+  <div class="card">
+    <div class="word">422) It</div>
+    <div class="meaning">यह</div>
+  </div>
+  <div class="card">
+    <div class="word">423) Was</div>
+    <div class="meaning">था</div>
+  </div>
+  <div class="card">
+    <div class="word">424) Be</div>
+    <div class="meaning">होना</div>
+  </div>
+  <div class="card">
+    <div class="word">425) Happen</div>
+    <div class="meaning">होना</div>
+  </div>
+  <div class="card"> 
+  <div class="word">426) Do</div>
+  <div class="meaning">करना</div>
+  </div>
+  <div class="card">
+    <div class="word">427) Does</div>
+    <div class="meaning">करता है</div>
+  </div>
+  <div class="card">
+    <div class="word">428) Did</div>
+    <div class="meaning">किया</div>
+  </div>
+  <div class="card">
+    <div class="word">429) She</div>
+    <div class="meaning">वह</div>
+  </div>
+  <div class="card">
+    <div class="word">430) We</div>
+    <div class="meaning">हम</div>
+  </div>
+  <div class="card">
+    <div class="word">431) You</div>
+    <div class="meaning">आप</div>
+  </div>
+  <div class="card">
+    <div class="word">432) They</div>
+    <div class="meaning">वे</div>
+  </div>
+  <div class="card">
+    <div class="word">433) Me</div>
+    <div class="meaning">मुझे</div>
+  </div>
+  <div class="card">
+    <div class="word">434) My</div>
+    <div class="meaning">मेरा</div>
+  </div>
+  <div class="card">
+    <div class="word">435) Our</div>
+    <div class="meaning">हमारा</div>
+  </div>
+  <div class="card">
+    <div class="word">436) Your</div>
+    <div class="meaning">आपका</div>
+  </div>
+  <div class="card">
+    <div class="word">437) Their</div>
+    <div class="meaning">उनका</div>
+  </div>
+  <div class="card">
+    <div class="word">438) Then</div>
+    <div class="meaning">तब</div>
+  </div>
+  <div class="card">
+    <div class="word">439) Now</div>
+    <div class="meaning">अब</div>
+  </div>
+  <div class="card">
+    <div class="word">440) Here</div>
+    <div class="meaning">यहाँ</div>
+  </div>
+  <div class="card">
+    <div class="word">441) Everywhere</div>
+    <div class="meaning">हर जगह</div>
+  </div>
+  <div class="card">
+    <div class="word">442) Somewhere</div>
+    <div class="meaning">कहीं</div>
+  </div>
+  <div class="card">
+    <div class="word">443) Nowhere</div>
+    <div class="meaning">कहीं नहीं</div>
+  </div>
+  <div class="card">
+    <div class="word">444) Some</div>
+    <div class="meaning">कुछ</div>
+  </div>
+  <div class="card">
+    <div class="word">445) Any</div>
+    <div class="meaning">कोई</div>
+  </div>
+  <div class="card">
+    <div class="word">446) Many</div>
+    <div class="meaning">अनेक</div>
+  </div>
+  <div class="card">
+    <div class="word">447) Much</div>
+    <div class="meaning">बहुत</div>
+  </div>
+  <div class="card">
+    <div class="word">448) Excess</div>
+    <div class="meaning">अधिकता</div>
+  </div>
+  <div class="card">
+    <div class="word">449) Few</div>
+    <div class="meaning">कुछ</div>
+  </div>
+  <div class="card">
+    <div class="word">450) All</div>
+    <div class="meaning">सभी</div>
+  </div>
+  <div class="card">
+    <div class="word">451) Whose</div>
+    <div class="meaning">किसका</div>
+  </div>
+  <div class="card">
+    <div class="word">452) Whom</div>
+    <div class="meaning">किसको</div>
+  </div>
+  <div class="card">
+    <div class="word">453) Separate</div>
+    <div class="meaning">अलग</div>
+  </div>
+  <div class="card">
+    <div class="word">454) Apart</div>
+    <div class="meaning">अलग</div>
+  </div>
+  <div class="card">
+    <div class="word">455) Critical</div>
+    <div class="meaning">नाजुक</div>
+  </div>
+  <div class="card">
+    <div class="word">456) Dare</div>
+    <div class="meaning">हिम्मत </div>
+  </div>
+  <div class="card">
+    <div class="word">457) Desire</div>
+    <div class="meaning">इच्छा</div>
+  </div>
+  <div class="card">
+    <div class="word">458) Tolerate</div>
+    <div class="meaning">सहन करना</div>
+  </div>
+  <div class="card">
+    <div class="word">460) To Bear</div>
+    <div class="meaning">सहना</div>
+  </div>
+  <div class="card">
+    <div class="word">461) Disclose</div>
+    <div class="meaning">खुलासा</div>
+  </div>
+  <div class="card">
+    <div class="word">462) Swelling </div>
+    <div class="meaning">सूजन</div>
+  </div>
+  <div class="card">
+    <div class="word">463) Snatch</div>
+    <div class="meaning">छीनना</div>
+  </div>
+  <div class="card">
+    <div class="word">464) Burden</div>
+    <div class="meaning">बोझ</div>
+  </div>
+  <div class="card">
+    <div class="word">465) Tease</div>
+    <div class="meaning">चिढ़ाना</div>
+  </div>
+  <div class="card">
+    <div class="word">466) Remedy</div>
+    <div class="meaning">उपचार</div>
+  </div>
+  <div class="card">
+    <div class="word">467) Horror</div>
+    <div class="meaning">डरावनी</div>
+  </div>
+  <div class="card">
+    <div class="word">468) Heaven</div>
+    <div class="meaning">स्वर्ग</div>
+  </div>
+  <div class="card">
+    <div class="word">469) Enemy</div>
+    <div class="meaning">दुश्मन</div>
+  </div>
+  <div class="card">
+    <div class="word">470) Declare</div>
+    <div class="meaning">घोषित</div>
+  </div>
+  <div class="card">
+    <div class="word">471) Remain</div>
+    <div class="meaning">अवशेष</div>
+  </div>
+  <div class="card">
+    <div class="word">472) Mercy</div>
+    <div class="meaning">दया</div>
+  </div>
+  <div class="card">
+    <div class="word">473) Compromise</div>
+    <div class="meaning">समझौता</div>
+  </div>
+  <div class="card">
+    <div class="word">474) Consent</div>
+    <div class="meaning">सहमति</div>
+  </div>
+  <div class="card">
+    <div class="word">475) Negotiable</div>
+    <div class="meaning">बातचीत 
+    योग्य</div>
+  </div>
+  <div class="card">
+    <div class="word">476) Empowerment</div>
+    <div class="meaning">अधिकारिता</div>
+  </div>
+  <div class="card">
+    <div class="word">477) Collaboration</div>
+    <div class="meaning">सहयोग</div>
+  </div>
+  <div class="card">
+    <div class="word">478) Marchant</div>
+    <div class="meaning">व्यापारी</div>
+  </div>
+  <div class="card">
+    <div class="word">479) Deaf</div>
+    <div class="meaning">बहरा</div>
+  </div>
+  <div class="card">
+    <div class="word">480) Affection</div>
+    <div class="meaning">स्नेह</div>
+  </div>
+  <div class="card">
+    <div class="word">481) Frighten</div>
+    <div class="meaning">डराना</div>
+  </div>
+  <div class="card">
+    <div class="word">482) Soaked</div>
+    <div class="meaning">भिगो</div>
+  </div>
+  <div class="card">
+    <div class="word">483) Fed Up</div>
+    <div class="meaning">त्रस्त</div>
+  </div>
+  <div class="card">
+    <div class="word">484) Anxious</div>
+    <div class="meaning">चिंतित</div>
+  </div>
+  <div class="card">
+    <div class="word">485) Correction</div>
+    <div class="meaning">सुधार</div>
+  </div>
+  <div class="card">
+    <div class="word">486) Reasonable</div>
+    <div class="meaning">वाजिब</div>
+  </div>
+  <div class="card">
+    <div class="word">487) Refrain</div>
+    <div class="meaning">रोकना</div>
+  </div>
+  <div class="card">
+    <div class="word">488) Repent</div>
+    <div class="meaning">पछताना</div>
+  </div>
+  <div class="card">
+    <div class="word">489) Roast</div>
+    <div class="meaning">भूनना</div>
+  </div>
+  <div class="card">
+    <div class="word">490) Sneak</div>
+    <div class="meaning">डरपोक</div>
+  </div>
+  <div class="card">
+    <div class="word">491) Coward</div>
+    <div class="meaning">कायर</div>
+  </div>
+  <div class="card">
+    <div class="word">492) Sissy</div>
+    <div class="meaning">बहिन</div>
+  </div>
+  <div class="card">
+    <div class="word">493) Siblings</div>
+    <div class="meaning">भाई-बहन</div>
+  </div>
+  <div class="card">
+    <div class="word">494) Similar</div>
+    <div class="meaning">समान</div>
+  </div>
+  <div class="card">
+    <div class="word">495) Insist</div>
+    <div class="meaning">आग्रह करना</div>
+  </div>
+  <div class="card">
+    <div class="word">496) Dazzling</div>
+    <div class="meaning">चकाचौंधा</div>
+  </div>
+  <div class="card">
+    <div class="word">497) Polite</div>
+    <div class="meaning">विनम्र</div>
+  </div>
+  <div class="card">
+    <div class="word">498) Gambler</div>
+    <div class="meaning">जुआरी</div>
+  </div>
+  <div class="card">
+    <div class="word">499) Obsession</div>
+    <div class="meaning">जुनून</div>
+  </div>
+  <div class="card">
+    <div class="word">500) fearless</div>
+    <div class="meaning">निडर</div>
+  </div>
+  </div>
+
+  <script>
+    function startApp() {
+      document.getElementById("start-screen").style.display = "none";
+      document.getElementById("word-list").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
